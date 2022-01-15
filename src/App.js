@@ -4,9 +4,10 @@ import {fetchWeather} from './api/fetchWeather';
 import './App.css';
 
 const App = () => {
-  // set the variable and function for useState
+  // a) set the variable and function for useState hook
   const [query, setQuery] = useState('');
 
+  // b) async arrow function with event variable to detect key pressed, if pressed, await the api query
   const search = async (e) => {
     // if keyboard  is enter
     if(e.key === 'Enter') {
@@ -18,6 +19,7 @@ const App = () => {
   }
 
   return(
+    // c) set up div container with the required input element and parameters
   <div className="main-container">
     {/* value and onChange below need to be coming from the state using the useState hook*/}
     <input
