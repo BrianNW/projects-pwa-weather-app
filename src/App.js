@@ -11,7 +11,7 @@ const App = () => {
   const search = async (e) => {
     // if keyboard  is enter
     if(e.key === 'Enter') {
-      // pass the query variable from our useState above
+      // pass the query variable as an API call to fetchWeather from our useState variable above
       const data = await fetchWeather(query)
 
       console.log(data);
@@ -20,6 +20,7 @@ const App = () => {
 
   return(
     // c) set up div container with the required input element and parameters
+    // d) if onChange (event) is pressed, run the setQuery useState function
   <div className="main-container">
     {/* value and onChange below need to be coming from the state using the useState hook*/}
     <input
