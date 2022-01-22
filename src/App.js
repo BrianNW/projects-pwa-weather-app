@@ -7,13 +7,23 @@ const App = () => {
   // a) set the variable and function for useState hook
   const [query, setQuery] = useState('');
 
+  // another useState field to get weather and set it
+  const [weather, setWeather] = useState({});
+
   // b) async arrow function with event variable to detect key pressed, if pressed, await the api query
   const search = async (e) => {
+    
     // if keyboard  is enter
     if(e.key === 'Enter') {
+
       // pass the query variable as an API call to fetchWeather from our useState variable above
       const data = await fetchWeather(query)
 
+      //set the weather to the data we've received
+      setWeather(data);
+
+      //reset data after pressing enter and querying
+      setQuery(' ');
       console.log(data);
     }
   }
@@ -24,14 +34,18 @@ const App = () => {
   <div className="main-container">
     {/* value and onChange below need to be coming from the state using the useState hook*/}
     <input
-      type="text"
-      className="search"
-      placeholder="Search..."
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
-      onKeyPress={search}
-    />
+      type="text" className="search" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={search} />
+
+    {/* if weather.main exists, return the react component */}
+    {weather.main && ( 
+      <div className="city"> 
+        <h2 className="city-name">
+          <span className="city-name">{weather.name}</span>
+          <sup> {weather.sys.country}</sup>
+        </h2> 
+      </div>
+    )}
   </div>
-  )}
+  )};
 
   export default App;
