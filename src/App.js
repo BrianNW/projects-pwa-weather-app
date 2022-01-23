@@ -33,8 +33,7 @@ const App = () => {
     // d) if onChange (event) is pressed, run the setQuery useState function
   <div className="main-container">
     {/* value and onChange below need to be coming from the state using the useState hook*/}
-    <input
-      type="text" className="search" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={search} />
+    <input type="text" className="search" placeholder="Search..." value={query}onChange={(e) => setQuery(e.target.value)} onKeyPress={search}/>
 
     {/* if weather.main exists, return the react component */}
     {weather.main && ( 
