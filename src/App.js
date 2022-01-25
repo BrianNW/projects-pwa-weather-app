@@ -13,7 +13,7 @@ const App = () => {
   // b) async arrow function with event variable to detect key pressed, if pressed, await the api query
   const search = async (e) => {
     
-    // if keyboard  is enter
+    // if enter key on the keyboard is entered
     if(e.key === 'Enter') {
 
       // pass the query variable as an API call to fetchWeather from our useState variable above
